@@ -46,3 +46,14 @@ const daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "
 for(let i = 0; i < daysOfTheWeek.length; i++) {
     console.log(daysOfTheWeek[i]);
 }
+
+/* Learning Activity 2 */
+function calculate(a, b, callback) {
+    callback(a + b);
+  }
+  
+  function displayResult(result) {
+    console.log('The result is: ' + result);
+  }
+
+  calculate(2, 3, displayResult);
