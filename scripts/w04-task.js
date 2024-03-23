@@ -75,6 +75,7 @@ title.innerText = myProfile.name;
 
 /* Photo with attributes */
 document.getElementById("photo").src = myProfile.photo;
+document.getElementById("photo").alt = "A profile photo of Sandi Junker";
 
 /* Favorite Foods List*/
 const favFoodsList = document.getElementById("favorite-foods");
@@ -99,15 +100,18 @@ myProfile.hobbies.forEach(function(hobbyItem) {
 });
 
 /* Places Lived DataList */
-const dataList = document.getElementById("places-lived");
-
-for (const property in myProfile.placesLived) {
-        
-    let dt = document.createElement("dt");
-        dt.textContent = property;
-        dataList.appendChild(dt);
-
-        let dd = document.createElement("dd");
-        dd.textContent = myProfile.placesLived[property];
-        dataList.appendChild(dd);
-}
+const dataList = document.getElementById("places-lived");     
+    
+myProfile.placesLived.forEach(function(placeObj, placeName) {
+    for (const i in placeObj) {
+        if(i == "place") {
+            let dt = document.createElement("dt");
+            dt.textContent = placeObj[i];
+            dataList.appendChild(dt);
+        } else {
+            let dd = document.createElement("dd");
+            dd.textContent = placeObj[i];
+            dataList.appendChild(dd);
+        }
+    }
+});
