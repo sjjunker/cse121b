@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    margin-top: 70px;
+}
+
+h1,
+h2 {
+    text-align: center;
+    margin: 1rem 0 .5rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+    color: rgb(17, 66, 36);
+    text-align: center;
+    margin-top: 10px;
+}
+
+#filterPlants {
+    margin-left: 1.5rem;
+}
+
+#plants {
+    margin: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: .5rem;
+    justify-items: center;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    
+}
+
+article {
+    margin: .25rem;
+    border-radius: 10%;
+    background-color: azure;   
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+footer {
+    background-color: rgb(17, 66, 36);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}

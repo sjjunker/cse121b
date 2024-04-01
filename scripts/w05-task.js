@@ -5,16 +5,16 @@ const templesElement = document.getElementById("temples");
 let templeList = [];
 
 /* async displayTemples Function */
-const displayTemples = temples => {
-    templeList.forEach(async temple => {
+const displayTemples = () => {
+    templeList.forEach(temple => {
         const articleElement = document.createElement("article");
 
         const h3Element = document.createElement("h3");
-        h3Element.innerText = await temple.templeName;
+        h3Element.innerText = temple.templeName;
 
         const imgElement = document.createElement("img");
-        imgElement.src = await temple.imageUrl;
-        imgElement.alt = await temple.location;
+        imgElement.src = temple.imageUrl;
+        imgElement.alt = temple.location;
 
         articleElement.appendChild(h3Element);
         articleElement.appendChild(imgElement);
@@ -33,6 +33,7 @@ const getTemples = async () => {
     }
     
     displayTemples(templeList);
+    console.log(templeList);
 }
 
 /* reset Function */
@@ -44,30 +45,33 @@ let reset = function() {
 function filterTemples (temples) {
     reset();
 
-    let filter = document.getElementById("filtered").value;
+    const filter = document.getElementById("filtered").value;
     let filteredTemples = [];
 
-    switch (filter) {
+    switch(filter) {
         case "utah":   
             filteredTemples = temples.filter(temple => temple.location.includes("Utah"));
             displayTemples(filteredTemples);
             break;
-        case "noutah":
+        case "notutah":
             filteredTemples = temples.filter(temple => !(temple.location.includes("Utah")));
             displayTemples(filteredTemples);
             break;
         case "older":
             let oldDate = new Date(1950, 0, 1);
-            filteredTemples = temples.filter(temple => temple.dedicated < oldDate);
+            let templeDate = new Date();
+            filteredTemples = temples.filter(temple => new Date(templeDate) < oldDate);
             displayTemples(filteredTemples);
             break;
         case "all":
-            displayTemples(filteredTemples);
+            displayTemples(temples);
             break;
     }
 }
 
 /* Event Listener */
-document.getElementById("filtered").addEventListener("change", () => {filterTemples(templeList)});
+const selector = document.getElementById("filtered");
+selector.addEventListener("change", () => {filterTemples(templeList)});
+
 
 getTemples();
