@@ -5,8 +5,8 @@ const templesElement = document.getElementById("temples");
 let templeList = [];
 
 /* async displayTemples Function */
-const displayTemples = () => {
-    templeList.forEach(temple => {
+const displayTemples = (temples) => {
+    temples.forEach(temple => {
         const articleElement = document.createElement("article");
 
         const h3Element = document.createElement("h3");
@@ -52,15 +52,19 @@ function filterTemples (temples) {
         case "utah":   
             filteredTemples = temples.filter(temple => temple.location.includes("Utah"));
             displayTemples(filteredTemples);
+            console.log(filteredTemples);
             break;
         case "notutah":
             filteredTemples = temples.filter(temple => !(temple.location.includes("Utah")));
             displayTemples(filteredTemples);
             break;
         case "older":
-            let oldDate = new Date(1950, 0, 1);
-            let templeDate = new Date();
-            filteredTemples = temples.filter(temple => new Date(templeDate) < oldDate);
+            let oldDate = (new Date(1950, 0, 1)).getFullYear();
+            
+            filteredTemples = temples.filter(temple => {
+                let templeDate = parseInt(temple.dedicated.split(",")[0]);
+                return templeDate < oldDate});
+            console.log(filteredTemples);
             displayTemples(filteredTemples);
             break;
         case "all":
