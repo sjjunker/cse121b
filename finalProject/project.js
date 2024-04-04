@@ -33,7 +33,7 @@ const displayPlants = (plants) => {
         daysToHarvestElement.innerText = `Days to Harvest: ${plant.daysToHarvest}`;
 
         const typeElement = document.createElement("p");
-        typeElement.innerText = `Type ${plant.type}`;
+        typeElement.innerText = `Type: ${plant.type}`;
 
         //Append to details
         detailsElement.appendChild(summaryElement);
