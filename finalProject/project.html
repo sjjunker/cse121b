@@ -5,15 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSE 121b | Final Project</title>
     <script src="project.js" defer></script>
-    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
     <header>
+        <nav>
+            <ul id="menu">
+              <li><a id="toggleMenu">&equiv;</a></li>
+              <li><a href="../cse121b/index.html">Home</a></li>
+              <li><a href="../cse121b/w01-task.html">W1 Task</a></li>
+              <li><a href="../w03-task.html">W3 Task</a></li>
+              <li><a href="../w04-task.html">W4 Task</a></li>
+              <li><a href="../w05-task.html">W5 Task</a></li>
+              <li><a href="/finalProject/project.html" class="active">Project</a></li>
+            </ul>
+          </nav>
         <h1>Final Project</h1>
         <h2>Garden Plant Library</h2>
     </header>
     <main>
         <select id="filterPlants">
+            <option value="" disabled selected>Filter Plants</option>
             <option value="spring">Spring</option>
             <option value="summer">Summer</option>
             <option value="fall">Fall</option>

@@ -46,7 +46,7 @@ const displayPlants = (plants) => {
     });    
 }
 
-/* async getTemples Function using fetch() */
+/* async getPlants Function using fetch() */
 const getPlants = async () => {
     const response = await fetch("https://api.npoint.io/6fdd660864a779c6c65e");
 
@@ -63,7 +63,7 @@ let reset = function() {
     plantsElement.innerHTML = "";
 };
 
-/* filterTemples Function 
+/* filterPlants Function 
 TODO: complete json*/
 function filterPlants (plants) {
     reset();
@@ -78,7 +78,8 @@ function filterPlants (plants) {
             break;
         case "winter":
             filteredPlants = plants.filter(plant => (plant.season.includes("Winter")));
-            displayTemples(filteredTemples);
+            displayPlants(filteredPlants);
+            
             break;
         case "spring":   
             filteredPlants = plants.filter(plant => plant.season.includes("Spring"));
@@ -87,6 +88,7 @@ function filterPlants (plants) {
         case "fall":   
             filteredPlants = plants.filter(plant => plant.season.includes("Fall"));
             displayPlants(filteredPlants);
+            break;
         case "all":
             displayPlants(plants);
             break;
