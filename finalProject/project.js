@@ -4,10 +4,12 @@ let plantList = [];
 
 /* async displayPlants Function */
 const displayPlants = (plants) => {
+
     plants.forEach(plant => {
+
         //Create a summary and details element
-        const detailsElement = document.createElement("details");
         const summaryElement = document.createElement("summary");
+        const detailsElement = document.createElement("details");
 
         //create children for summary
         const h3Element = document.createElement("h3");
@@ -15,23 +17,23 @@ const displayPlants = (plants) => {
 
         const imgElement = document.createElement("img");
         imgElement.src = plant.imageUrl;
-        imgElement.alt = plant.location;
+        imgElement.alt = plant.description;
 
         summaryElement.appendChild(h3Element);
         summaryElement.appendChild(imgElement);
 
         //create the rest of children for details element
         const descriptionElement = document.createElement("p");
-        descriptionElement.innerText = plant.description;
+        descriptionElement.innerText = `Description: ${plant.description}`;
 
         const seasonElement = document.createElement("p");
-        seasonElement.innerText = plant.season;
+        seasonElement.innerText = `Planting Season: ${plant.season}`;
 
-        const daysToHarvestElement = documents.createElement("p");
-        daysToHarvestElement.innerText = plant.daysToHarvest;
+        const daysToHarvestElement = document.createElement("p");
+        daysToHarvestElement.innerText = `Days to Harvest: ${plant.daysToHarvest}`;
 
         const typeElement = document.createElement("p");
-        typeElement.innerText = plant.type;
+        typeElement.innerText = `Type ${plant.type}`;
 
         //Append to details
         detailsElement.appendChild(summaryElement);
@@ -39,6 +41,8 @@ const displayPlants = (plants) => {
         detailsElement.appendChild(seasonElement);
         detailsElement.appendChild(daysToHarvestElement);
         detailsElement.appendChild(typeElement);
+
+        plantsElement.appendChild(detailsElement);
     });    
 }
 
